@@ -18,10 +18,10 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 
 const { Pool, Client } = require('pg')
 const pool = new Pool({
-  user: 'eki',
-  host: 'localhost',
-  database: 'pms',
-  password: '12345',
+  user: 'plfdbppiuuzuar',
+  host: 'ec2-54-235-208-103.compute-1.amazonaws.com',
+  database: 'd9mmq8k1lr14j6',
+  password: 'fdffba354aad9cbda4eaea40eae69247b5c817fc9285c06f309c1a464ef09ee8',
   port: 5432
 })
 
