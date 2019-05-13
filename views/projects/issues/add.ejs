@@ -1,0 +1,242 @@
+<% include ../../partial/header %>
+<% include ../../partial/sidebar %>
+<div style="line-height:10px"><br /></div>
+<div class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <h1><b>New Issue</b></h1>
+    <hr />
+</div>
+
+<div class="container-fluid" style="margin-top:-40px">
+    <div class="row">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <form method="post" encType="multipart/form-data">
+                <div class="card">
+                    <div class="card-body">
+
+                        <!-- tracker -->
+                        <div class="form-group row">
+                            <legend class="col-form-label col-sm-2 pt-0">Tracker</legend>
+                            <fieldset id="position-radio" class="col-form-label col-sm-10 pt-0">
+                                <div class="col-sm-10">
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="trackerissue"
+                                            id="trackerissueRadio1" value="Bug">
+                                        <label class="custom-control-label" for="trackerissueRadio1">
+                                            Bug
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="trackerissue"
+                                            id="trackerissueRadio2" value="Feature">
+                                        <label class="custom-control-label" for="trackerissueRadio2">
+                                            Feature
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="trackerissue"
+                                            id="trackerissueRadio3" value="Support">
+                                        <label class="custom-control-label" for="trackerissueRadio3">
+                                            Support
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <!-- subject -->
+                        <div class="form-group row">
+                            <label for="inputUser" class="col-sm-2 col-form-label">Subject</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="subjectform" name="subjectform"
+                                    placeholder="Subject" value="">
+                            </div>
+                        </div>
+
+                        <!-- description -->
+                        <div class="form-group row">
+                            <label for="inputUser" class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" rows="3" id="descriptionform" name="descriptionform"
+                                    placeholder="Description" value=""></textarea>
+                            </div>
+                        </div>
+
+                        <!-- status -->
+                        <div class="form-group row">
+                            <legend class="col-form-label col-sm-2 pt-0">Status</legend>
+                            <fieldset id="position-radio" class="col-form-label col-sm-10 pt-0">
+                                <div class="col-sm-10">
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="statusIssue"
+                                            id="statusIssueRadio1" value="New">
+                                        <label class="custom-control-label" for="statusIssueRadio1">
+                                            New
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="statusIssue"
+                                            id="statusIssueRadio2" value="In Progress" disabled>
+                                        <label class="custom-control-label" for="statusIssueRadio2">
+                                            In Progress
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="statusIssue"
+                                            id="statusIssueRadio3" value="resolved" disabled>
+                                        <label class="custom-control-label" for="statusIssueRadio3">
+                                            Resolved
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="statusIssue"
+                                            id="statusIssueRadio4" value="feedback" disabled>
+                                        <label class="custom-control-label" for="statusIssueRadio4">
+                                            Feedback
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="statusIssue"
+                                            id="statusIssueRadio5" value="closed" disabled>
+                                        <label class="custom-control-label" for="statusIssueRadio5">
+                                            Closed
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="statusIssue"
+                                            id="statusIssueRadio6" value="rejected" disabled>
+                                        <label class="custom-control-label" for="statusIssueRadio6">
+                                            Rejected
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <!-- priority -->
+                        <div class="form-group row">
+                            <legend class="col-form-label col-sm-2 pt-0">Priority</legend>
+                            <fieldset id="position-radio" class="col-form-label col-sm-10 pt-0">
+                                <div class="col-sm-10">
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="priorityissue"
+                                            id="priorityissueRadio1" value="normal">
+                                        <label class="custom-control-label" for="priorityissueRadio1">
+                                            Normal
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="priorityissue"
+                                            id="priorityissueRadio2" value="high">
+                                        <label class="custom-control-label" for="priorityissueRadio2">
+                                            High
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="priorityissue"
+                                            id="priorityissueRadio3" value="urgent">
+                                        <label class="custom-control-label" for="priorityissueRadio3">
+                                            Urgent
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="priorityissue"
+                                            id="priorityissueRadio4" value="immediate">
+                                        <label class="custom-control-label" for="priorityissueRadio4">
+                                            Immediate
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <!-- assignee -->
+                        <div class="form-group row">
+                            <label for="assigneeform" class="col-sm-2 col-form-label">Assignee</label>
+                            <div class="col-sm-9">
+                                <select class="custom-select form-control" name="assigneeform" id="assigneeform">
+                                    <option>Assignee</option>
+                                    <% for (let e = 0;e < resultAdd.length;e++) { %>
+                                    <option value="<%= resultAdd[e].userid %>">
+                                        <%= resultAdd[e].firstname + ' ' + resultAdd[e].lastname %></option>
+                                    <% } %>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- startdate -->
+                        <div class="form-group row">
+                            <label for="startdateform" class="col-sm-2 col-form-label">Start Date</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="startdateform" name="startdateform"
+                                    placeholder="Start Date" value="">
+                            </div>
+                        </div>
+
+                        <!-- duedate -->
+                        <div class="form-group row">
+                            <label for="duedateform" class="col-sm-2 col-form-label">Due Date</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="duedateform" name="duedateform"
+                                    placeholder="Due Date" value="">
+                            </div>
+                        </div>
+
+                        <!-- estimated date -->
+                        <div class="form-group row">
+                            <label for="estimatedform" class="col-sm-2 col-form-label">Estimated Date</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="estimatedform" name="estimatedform"
+                                    placeholder="Due Date" value="">
+                            </div>
+                        </div>
+
+                        <!-- done -->
+                        <div class="form-group row">
+                            <label for="doneform" class="col-sm-2 col-form-label">% Done</label>
+                            <div class="col-sm-9">
+                                <select class="custom-select form-control" name="doneform" id="doneform">
+                                    <option>Percentage</option>
+                                    <option value="0">0%</option>
+                                    <option value="25">25%</option>
+                                    <option value="50">50%</option>
+                                    <option value="75">75%</option>
+                                    <option value="100">100%</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="validatedCustomFile" class="col-sm-2 col-form-label">File</label>
+                            <div class="custom-file col-sm-9">
+                                <input type="file" class="custom-file-input" id="validatedCustomFile" name="sampleFile">
+                                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                <div class="invalid-feedback">Example invalid custom file feedback</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="parentadd" class="col-sm-2 col-form-label">Parent Task (Issue ID)</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="parentadd" name="parentadd"
+                                    placeholder="Parent Task" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="authoradd" class="col-sm-2 col-form-label">Author</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="authoradd" name="authoradd"
+                                    placeholder="Author" value="">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-primary">Save</button>
+                        <br>
+                    </div>
+                </div>
+                <br><br>
+            </form>
+            <br>
+        </main>
+    </div>
+</div>

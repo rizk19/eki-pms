@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>PMS</title>
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+  <style>
+    .table-hover tbody tr:hover td {
+      background: rgb(228, 245, 250);
+      opacity: 0.9 !important;
+    }
+
+    .table-hover tbody tr:hover th {
+      background: lightskyblue !important;
+    }
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="/stylesheets/dashboard.css" />
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand mb-0 h1" href="#">Project Management System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item <%= nav == 1 ? 'active' : '' %>">
+          <a class="nav-link" href="/projects/list" /> Projects <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item <%= nav == 2 ? 'active' : '' %>">
+          <a class="nav-link" href="/profile/list" />Profile</a>
+        </li>
+        <li class="nav-item <%= nav == 3 ? 'active' : '' %> " >
+          <a class="nav-link" href="/users/list" <%= (user.privilage == false) ? 'hidden' : '' %> >Users</a>
+        </li>
+      </ul>
+      <a class="btn btn-danger my-2 my-sm-0" type="submit" href="/logout" />Log Out</a>
+    </div>
+  </nav>
+  <div style="line-height:50px"><br /></div>

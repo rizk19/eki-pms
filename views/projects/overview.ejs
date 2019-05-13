@@ -1,0 +1,39 @@
+<% include ../partial/header %>
+<% include ../partial/sidebar %>
+<div style="line-height:10px"><br /></div>
+<div class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <h1><b>Overview</b></h1>
+    <hr />
+    <h2><b>Library System</b></h1>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="card">
+                <div class="card-body">
+                    <ul>
+                        <p>Issue Tracking</p>
+                        <li>Bug: <%= countBug %> Open / <%= countBug2 %></li>
+                        <li>Feature: <%= countFeat %> Open / <%= countFeat2 %></li>
+                        <li>Support: <%= countSupp %> Open / <%= countSupp2 %></li>
+                    </ul>
+                </div>
+            </div>
+            <br />
+            <div class="card">
+                <div class="card-body">
+                    <ul>
+                        <p>Members</p>
+                        <% for (let x = 0;x < showedmember.length;x++) { %>
+                        <li><%= showedmember[x].firstname + ' ' + showedmember[x].lastname %></li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<% include ../partial/footer %>

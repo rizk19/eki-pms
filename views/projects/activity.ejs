@@ -1,0 +1,96 @@
+<% include ../partial/header %>
+<% include ../partial/sidebar %>
+<div style="line-height:10px"><br /></div>
+<div class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <h1><b>Activity</b></h1>
+    <h4>From <%= moment().subtract(7, 'days').calendar() %> to <%= moment().format('L') %></h4>
+                   
+    <hr />
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="card">
+                <div class="card-body">
+                    
+                    <p><b><%= moment().format('[Today]')%> <%= moment().format('YYYY/MM/DD') %></b></p>
+                    <ul>
+                        <% for (let a =0;a<throwAct.length;a++) { %>
+                        <% if (moment().format('YYYY/MM/DD') == moment(throwAct[a]['time']).format('YYYY/MM/DD')) {%>
+                        <li> <%= moment(throwAct[a]['time']).format('HH:mm')
+                            + ' ' +`${throwAct[a].title}` + ', Description: ' +`${throwAct[a].description}` 
+                            + ', Author: ' + `${throwAct[a].firstname}` + ' ' + `${throwAct[a].lastname}` %></li>
+                        
+                        <% } } %>
+                    </ul>
+                    <p><b><%= moment().format('[Yesterday]')%>
+                            <%= moment().subtract(1, 'days').format('YYYY/MM/DD') %></b></p>
+                    <ul>
+                        <% for (let a =0;a<throwAct.length;a++) { %>
+                        <% if (moment().subtract(1, 'days').format('YYYY/MM/DD') == moment(throwAct[a]['time']).format('YYYY/MM/DD')) {%>
+                        <li> <%= moment(throwAct[a]['time']).format('HH:mm')
+                            + ' ' +`${throwAct[a].title}` + ', Description: ' +`${throwAct[a].description}` 
+                            + ', Author: ' + `${throwAct[a].firstname}` + ' ' + `${throwAct[a].lastname}` %> </li>
+                         <% } } %>
+                    </ul>
+                    <p><b><%= moment().subtract(2, 'days').calendar()%>
+                            <%= moment().subtract(2, 'days').format('YYYY/MM/DD') %></b></p>
+                    <ul>
+                        <% for (let a =0;a<throwAct.length;a++) { %>
+                        <% if (moment().subtract(2, 'days').format('YYYY/MM/DD') == moment(throwAct[a]['time']).format('YYYY/MM/DD')) {%>
+                        <li> <%= moment(throwAct[a]['time']).format('HH:mm')
+                        + ' ' +`${throwAct[a].title}` + ', Description: ' +`${throwAct[a].description}` 
+                        + ', Author: ' + `${throwAct[a].firstname}` + ' ' + `${throwAct[a].lastname}` %> </li>
+                         <% } } %>
+                    </ul>
+                    <p><b><%= moment().subtract(3, 'days').calendar()%>
+                            <%= moment().subtract(3, 'days').format('YYYY/MM/DD') %></b></p>
+                    <ul>
+                        <% for (let a =0;a<throwAct.length;a++) { %>
+                        <% if (moment().subtract(3, 'days').format('YYYY/MM/DD') == moment(throwAct[a]['time']).format('YYYY/MM/DD')) {%>
+                        <li> <%= moment(throwAct[a]['time']).format('HH:mm')
+                    + ' ' +`${throwAct[a].title}` + ', Description: ' +`${throwAct[a].description}` 
+                    + ', Author: ' + `${throwAct[a].firstname}` + ' ' + `${throwAct[a].lastname}` %> </li>
+                         <% } } %>
+                    </ul>
+                    <p><b><%= moment().subtract(4, 'days').calendar()%>
+                            <%= moment().subtract(4, 'days').format('YYYY/MM/DD') %></b></p>
+                    <ul>
+                        <% for (let a =0;a<throwAct.length;a++) { %>
+                        <% if (moment().subtract(4, 'days').format('YYYY/MM/DD') == moment(throwAct[a]['time']).format('YYYY/MM/DD')) {%>
+                        <li> <%= moment(throwAct[a]['time']).format('HH:mm')
+                        + ' ' +`${throwAct[a].title}` + ', Description: ' +`${throwAct[a].description}` 
+                        + ', Author: ' + `${throwAct[a].firstname}` + ' ' + `${throwAct[a].lastname}` %> </li>
+                         <% } } %>
+                    </ul>
+                    <p><b><%= moment().subtract(5, 'days').calendar()%>
+                            <%= moment().subtract(5, 'days').format('YYYY/MM/DD') %></b></p>
+                    <ul>
+                        <% for (let a =0;a<throwAct.length;a++) { %>
+                        <% if (moment().subtract(5, 'days').format('YYYY/MM/DD') == moment(throwAct[a]['time']).format('YYYY/MM/DD')) {%>
+                        <li> <%= moment(throwAct[a]['time']).format('HH:mm')
+                    + ' ' +`${throwAct[a].title}` + ', Description: ' +`${throwAct[a].description}` 
+                    + ', Author: ' + `${throwAct[a].firstname}` + ' ' + `${throwAct[a].lastname}` %> </li>
+                         <% } } %>
+                    </ul>
+                    <p><b><%= moment().subtract(6, 'days').calendar()%>
+                            <%= moment().subtract(6, 'days').format('YYYY/MM/DD') %></b></p>
+                    <ul>
+                        <% for (let a =0;a<throwAct.length;a++) { %>
+                        <% if (moment().subtract(6, 'days').format('YYYY/MM/DD') == moment(throwAct[a]['time']).format('YYYY/MM/DD')) {%>
+                        <li> <%= moment(throwAct[a]['time']).format('HH:mm')
+                    + ' ' +`${throwAct[a].title}` + ', Description: ' +`${throwAct[a].description}` 
+                    + ', Author: ' + `${throwAct[a].firstname}` + ' ' + `${throwAct[a].lastname}` %> </li>
+                           <% } } %>
+                    </ul>
+                </div>
+            </div>
+            <br />
+
+        </main>
+    </div>
+</div>
+
+<% include ../partial/footer %>

@@ -1,0 +1,37 @@
+<% include ../partial/header %>
+
+<h1 style="font-weight: bold;margin-top:15px;margin-left:30px">Edit Projects</h1>
+<div class="container">
+    <form method="post">
+        <div class="form-group row">
+            <label for="addproject" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="editproject" name="editproject" placeholder="Project Name" value="<%= projectname %>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <legend class="col-form-label col-sm-2 pt-0">Members</legend>
+            <fieldset id="status-radio" class="col-form-label col-sm-10 pt-0">
+                <div class="col-sm-10">
+                    <% for (let i = 0; i < editPro.length; i++ ){ %>
+                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                        <input class="custom-control-input" type="checkbox" name="editmemberproject" id="checkbox<%=i%>"
+                            value="<%=[i + 1]%>">
+                        <label class="custom-control-label" for="checkbox<%=i%>" <%= (editPro[i] == 'Super Admin') ? 'hidden' : '' %> >
+                            <%= editPro[i]%>
+                        </label>
+                    </div>
+                    <% } %>
+                </div>
+            </fieldset>
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Save</button>
+        <a href='/projects/list/' class="btn btn-outline-warning">Back</a>
+    </form>
+</div>
+
+
+
+
+
+<% include ../partial/footer %>

@@ -1,0 +1,121 @@
+<% include ../partial/header %>
+
+<h1 style="margin-top:15px;margin-left:30px"><b>Users [ADMIN only]</b></h1>
+<hr>
+</hr>
+<h3 class="col-sm-1" style="color:darkslategrey;border-radius: 5px;margin-top:0px;margin-left:30px;">Filters</h3>
+
+<div class="container">
+    <form>
+        <input type="hidden" name="page" value="1">
+        <div class="form-group row">
+            <div class="col-form-label">
+                <input class="form-check-input" type="checkbox" id="checkuser1" name="checkuser1"
+                    <%= (query.checkuser1) ? 'checked': '' %>>
+            </div>
+            <label for="checkuser1" class="col-sm-2 col-form-label">User ID</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="haluserid" name="haluserid" placeholder="User ID"
+                    value="<%= query.haluserid %>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-form-label">
+                <input class="form-check-input" type="checkbox" id="checkuser2" name="checkuser2"
+                    <%= (query.checkuser2) ? 'checked': '' %>>
+            </div>
+            <label for="checkuser2" class="col-sm-2 col-form-label">User Name</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="halusername" name="halusername" placeholder="User Name"
+                    value="<%= query.halusername %>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-form-label">
+                <input class="form-check-input" type="checkbox" id="checkuser3" name="checkuser3"
+                    <%= (query.checkuser3) ? 'checked': '' %>>
+            </div>
+            <label for="checkuser3" class="col-sm-2 col-form-label">Position</label>
+            <div class="col-sm-9">
+                <select id="inputState" class="form-control" name="haluserposition">
+                    <option value="">Position</option>
+                    <option value="manager" <%= query.haluserposition == 'manager' ? ' selected' : '' %>>Manager
+                    </option>
+                    <option value="software" <%= query.haluserposition == 'software' ? ' selected' : '' %>>Software
+                        Developer</option>
+                    <option value="quality" <%= query.haluserposition == 'quality' ? ' selected' : '' %>>Quality
+                        Assurance</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-form-label">
+                <input class="form-check-input" type="checkbox" id="checkuser4" name="checkuser4"
+                    <%= (query.checkuser4) ? 'checked': '' %>>
+            </div>
+            <label for="checkuser4" class="col-sm-2 col-form-label">Working Status</label>
+            <div class="col-sm-9">
+                <select id="inputState" class="form-control" name="halworkingstat">
+                    <option value="">Working Status</option>
+                    <option value="fulltime" <%= query.halworkingstat == 'fulltime' ? ' selected' : '' %>>Full Time
+                    </option>
+                    <option value="parttime" <%= query.halworkingstat == 'parttime' ? ' selected' : '' %>>Part Time
+                    </option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Search</button>
+        <a href='/users/list' class="btn btn-outline-warning">Reset</a>
+    </form>
+</div>
+<br>
+<h3 class="col-sm-2" style="color:darkslategrey;border-radius: 5px;margin-top:0px;margin-left:30px;">Table Users</h3>
+<br>
+<div class="container">
+    <div style="margin-right:60px">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">User ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Working Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% showuser1.forEach((data)=>{ %>
+                <tr <%= (data.fullname == 'Super Admin') ? 'hidden' : '' %>>
+
+                    <th scope="row"><%= data.userid %></th>
+
+                    <td><%= data.fullname %></td>
+                    <td><%= data.position %></td>
+                    <td><%= data.working_status %></td>
+                    <td><a href='/users/edit/<%= data.userid %>' class="btn btn-outline-secondary">Edit</a>
+                        <a href='/users/delete/<%= data.userid %>' class="btn btn-outline-danger" onclick="return confirm('Delete This User?')" >Delete</a></td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item<%= 1 == pagination.page ? ' disabled' : ''%>"><a class="page-link"
+                        href="/users<%= pagination.url.replace(`page=${pagination.page}`, `page=${parseInt(pagination.page) - 1}`) %>">Previous</a>
+                </li>
+                <% for(let i = 1; i <= pagination.pages;i++) { %>
+                <li class="page-item<%= i == pagination.page ? ' active' : ''%>"><a class="page-link"
+                        href="/users<%= pagination.url.replace(`page=${pagination.page}`, `page=${i}`) %>"><%= i %></a>
+                </li>
+                <% } %>
+                <li class="page-item<%= pagination.pages <= pagination.page ? ' disabled' : ''%>"><a class="page-link"
+                        href="/users<%= pagination.url.replace(`page=${pagination.page}`, `page=${parseInt(pagination.page) + 1}`) %>">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <a href="/users/add" class="btn btn-primary" style="margin-left:0px">Add</a>
+</div>
+<br></br>
+
+<% include ../partial/footer %>

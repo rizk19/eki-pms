@@ -1,0 +1,91 @@
+<% include ../partial/header %>
+
+<h1 style="font-weight: bold;margin-top:15px;margin-left:30px">Add Users</h1>
+<div class="container">
+    <form method="post">
+        <div class="form-group row">
+            <label for="newFirstname" class="col-sm-2 col-form-label">First Name</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="newFirstname" name="newFirstname"
+                    placeholder="Fill first name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="newLastname" class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="newLastname" name="newLastname"
+                    placeholder="Fill last name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="newEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="newEmail" name="newEmail"
+                    placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="newPass" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="newPass" name="newPass"
+                    placeholder="Password">
+            </div>
+        </div>
+        <!-- position-radio -->
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Position</legend>
+            <fieldset id="position-radio" class="col-form-label col-sm-10 pt-0">
+                <div class="col-sm-10">
+                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                        <input class="custom-control-input" type="radio" name="position" id="position-radio1"
+                            value="manager">
+                        <label class="custom-control-label" for="position-radio1">
+                            Manager
+                        </label>
+                    </div>
+                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                        <input class="custom-control-input" type="radio" name="position" id="position-radio2"
+                            value="software">
+                        <label class="custom-control-label" for="position-radio2">
+                            Software Developer
+                        </label>
+                    </div>
+                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                        <input class="custom-control-input" type="radio" name="position" id="position-radio3"
+                            value="quality">
+                        <label class="custom-control-label" for="position-radio3">
+                            Quality Assurance
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Working Status</legend>
+            <fieldset id="workingStatus-radio" class="col-form-label col-sm-10 pt-0">
+                <div class="col-sm-10">
+                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                        <input class="custom-control-input" type="radio" name="workingStatus" id="workingStatus-radio1"
+                            value="fulltime">
+                        <label class="custom-control-label" for="workingStatus-radio1">
+                            Full Time
+                        </label>
+                    </div>
+                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                        <input class="custom-control-input" type="radio" name="workingStatus" id="workingStatus-radio2"
+                            value="parttime">
+                        <label class="custom-control-label" for="workingStatus-radio2">
+                            Part Time
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <button type="submit" class="btn btn-outline-info" onclick="return confirm('Add This New User?')">Add
+            User!</button>
+            <a href='/users/list' class="btn btn-outline-warning">Cancel</a>
+    </form>
+</div>
+
+<% include ../partial/footer %>

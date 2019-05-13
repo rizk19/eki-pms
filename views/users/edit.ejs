@@ -1,0 +1,89 @@
+<% include ../partial/header %>
+
+<h1 style="font-weight: bold;margin-top:15px;margin-left:30px">Add Users</h1>
+<div class="container">
+    <form method="post">
+        <div class="form-group row">
+            <label for="editFirstname" class="col-sm-2 col-form-label">First Name</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="editFirstname" name="editFirstname"
+                    placeholder="Fill first name" value="<%= showEdit.firstname %>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="editLastname" class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="editLastname" name="editLastname"
+                    placeholder="Fill last name" value="<%= showEdit.lastname %>" >
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="editEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="editEmail" name="editEmail" placeholder="Email" value="<%= showEdit.email %>" >
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="editPass" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="editPass" name="editPass" placeholder="Password" value="<%= showEdit.password %>" >
+            </div>
+        </div>
+        <!-- position-radio -->
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Position</legend>
+            <fieldset id="editPosition-radio" class="col-form-label col-sm-10 pt-0">
+                <div class="col-sm-10">
+                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                        <input class="custom-control-input" type="radio" name="editPosition" id="editPosition-radio1"
+                            value="manager" <%= (showEdit.position == 'manager') ? 'checked' : '' %> >
+                        <label class="custom-control-label" for="editPosition-radio1">
+                            Manager
+                        </label>
+                    </div>
+                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                        <input class="custom-control-input" type="radio" name="editPosition" id="editPosition-radio2"
+                            value="software" <%= (showEdit.position == 'software') ? 'checked' : '' %> >
+                        <label class="custom-control-label" for="editPosition-radio2">
+                            Software Developer
+                        </label>
+                    </div>
+                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                        <input class="custom-control-input" type="radio" name="editPosition" id="editPosition-radio3"
+                            value="quality" <%= (showEdit.position == 'quality') ? 'checked' : '' %> >
+                        <label class="custom-control-label" for="editPosition-radio3">
+                            Quality Assurance
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Working Status</legend>
+            <fieldset id="editStatus-radio" class="col-form-label col-sm-10 pt-0">
+                <div class="col-sm-10">
+                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                        <input class="custom-control-input" type="radio" name="editStatus" id="editStatus-radio1"
+                            value="fulltime" <%= (showEdit.working_status == 'fulltime') ? 'checked' : '' %> >
+                        <label class="custom-control-label" for="editStatus-radio1">
+                            Full Time
+                        </label>
+                    </div>
+                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                        <input class="custom-control-input" type="radio" name="editStatus" id="editStatus-radio2"
+                            value="parttime" <%= (showEdit.working_status == 'parttime') ? 'checked' : '' %> >
+                        <label class="custom-control-label" for="editStatus-radio2">
+                            Part Time
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <button type="submit" class="btn btn-outline-info" onclick="return confirm('Edit This User?')">Edit
+            User!</button>
+            <a href='/users/list' class="btn btn-outline-warning">Cancel</a>
+    </form>
+</div>
+
+<% include ../partial/footer %>

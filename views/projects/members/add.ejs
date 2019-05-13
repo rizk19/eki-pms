@@ -1,0 +1,55 @@
+<% include ../../partial/header %>
+<% include ../../partial/sidebar %>
+<div style="line-height:10px"><br /></div>
+<div class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <h1><b>Add Members</b></h1>
+    <hr />
+</div>
+<div class="container">
+    <form method="post">
+        <div class="form-group row">
+            <legend class="col-form-label col-sm-2 pt-0">Members</legend>
+            <fieldset id="members-radio" class="col-form-label col-sm-10 pt-0">
+                <div class="col-sm-10">
+                    <% for (let i = 0; i < plusmember.length; i++ ){ %>
+                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                        <input class="custom-control-input" type="radio" name="namemember" id="radio<%=[i + 1]%>"
+                            value="<%=membernumber[i].userid%>">
+                        <label class="custom-control-label" for="radio<%=[i + 1]%>" <%= (plusmember[i] == 'Super Admin') ? 'hidden' : '' %> >
+                            <%= plusmember[i]%>
+                        </label>
+                    </div>
+                    <% } %>
+                </div>
+            </fieldset>
+            <legend class="col-form-label col-sm-2 pt-0">Position</legend>
+            <fieldset id="position-radio" class="col-form-label col-sm-10 pt-0">
+                <div class="col-sm-10">
+                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                        <input class="custom-control-input" type="radio" name="memberPosition" id="memberPositionRadio1"
+                            value="manager">
+                        <label class="custom-control-label" for="memberPositionRadio1">
+                            Manager
+                        </label>
+                    </div>
+                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                        <input class="custom-control-input" type="radio" name="memberPosition" id="memberPositionRadio2"
+                            value="software" >
+                        <label class="custom-control-label" for="memberPositionRadio2">
+                            Software Developer
+                        </label>
+                    </div>
+                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                        <input class="custom-control-input" type="radio" name="memberPosition" id="memberPositionRadio3"
+                            value="quality" >
+                        <label class="custom-control-label" for="memberPositionRadio3">
+                            Quality Assurance
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Save</button>
+
+    </form>
+</div>

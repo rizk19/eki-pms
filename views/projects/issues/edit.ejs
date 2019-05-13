@@ -1,0 +1,289 @@
+<% include ../../partial/header %>
+<% include ../../partial/sidebar %>
+<div style="line-height:10px"><br /></div>
+<div class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <h1><b>Edit Issue</b></h1>
+    <hr />
+</div>
+
+<div class="container-fluid" style="margin-top:-40px">
+    <div class="row">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <form method="post">
+                <div class="card">
+                    <div class="card-body">
+
+                        <!-- tracker -->
+                        <div class="form-group row">
+                            <legend class="col-form-label col-sm-2 pt-0">Tracker</legend>
+                            <fieldset id="position-radio" class="col-form-label col-sm-10 pt-0">
+                                <div class="col-sm-10">
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="trackerissueEdit"
+                                            id="trackerissueRadioEdit1" value="Bug"
+                                            <%= (resultEdit.tracker == 'Bug') ? 'checked' : '' %>>
+                                        <label class="custom-control-label" for="trackerissueRadioEdit1">
+                                            Bug
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="trackerissueEdit"
+                                            id="trackerissueRadioEdit2" value="Feature"
+                                            <%= (resultEdit.tracker == 'Feature') ? 'checked' : '' %>>
+                                        <label class="custom-control-label" for="trackerissueRadioEdit2">
+                                            Feature
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="trackerissueEdit"
+                                            id="trackerissueRadioEdit3" value="Support"
+                                            <%= (resultEdit.tracker == 'Support') ? 'checked' : '' %>>
+                                        <label class="custom-control-label" for="trackerissueRadioEdit3">
+                                            Support
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <!-- subject -->
+                        <div class="form-group row">
+                            <label for="subjectformEdit" class="col-sm-2 col-form-label">Subject</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="subjectformEdit" name="subjectformEdit"
+                                    placeholder="Subject" value="<%=resultEdit.subject%>">
+                            </div>
+                        </div>
+
+                        <!-- description -->
+                        <div class="form-group row">
+                            <label for="descriptionformEdit" class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" rows="3" id="descriptionformEdit"
+                                    name="descriptionformEdit" placeholder="Description"
+                                    value=""><%=resultEdit.description%></textarea>
+                            </div>
+                        </div>
+
+                        <!-- status -->
+                        <div class="form-group row">
+                            <legend class="col-form-label col-sm-2 pt-0">Status</legend>
+                            <fieldset id="position-radio" class="col-form-label col-sm-10 pt-0">
+                                <div class="col-sm-10">
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="statusIssueEdit"
+                                            id="statusIssueRadioEdit1" value="New"
+                                            <%= (resultEdit.status == 'New') ? 'checked' : '' %>>
+                                        <label class="custom-control-label" for="statusIssueRadioEdit1">
+                                            New
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="statusIssueEdit"
+                                            id="statusIssueRadioEdit2" value="In Progress"
+                                            <%= (resultEdit.status == 'In Progress') ? 'checked' : '' %>>
+                                        <label class="custom-control-label" for="statusIssueRadioEdit2">
+                                            In Progress
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="statusIssueEdit"
+                                            id="statusIssueRadioEdit3" value="Resolved"
+                                            <%= (resultEdit.status == 'Resolved') ? 'checked' : '' %>>
+                                        <label class="custom-control-label" for="statusIssueRadioEdit3">
+                                            Resolved
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="statusIssueEdit"
+                                            id="statusIssueRadioEdit4" value="Feedback"
+                                            <%= (resultEdit.status == 'Feedback') ? 'checked' : '' %>>
+                                        <label class="custom-control-label" for="statusIssueRadioEdit4">
+                                            Feedback
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="statusIssueEdit"
+                                            id="statusIssueRadioEdit5" value="Closed"
+                                            <%= (resultEdit.status == 'Closed') ? 'checked' : '' %>>
+                                        <label class="custom-control-label" for="statusIssueRadioEdit5">
+                                            Closed
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="statusIssueEdit"
+                                            id="statusIssueRadioEdit6" value="Rejected"
+                                            <%= (resultEdit.status == 'Rejected') ? 'checked' : '' %>>
+                                        <label class="custom-control-label" for="statusIssueRadioEdit6">
+                                            Rejected
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <!-- priority -->
+                        <div class="form-group row">
+                            <legend class="col-form-label col-sm-2 pt-0">Priority</legend>
+                            <fieldset id="position-radio" class="col-form-label col-sm-10 pt-0">
+                                <div class="col-sm-10">
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="priorityissueEdit"
+                                            id="priorityissueRadioEdit1" value="normal"
+                                            <%= (resultEdit.priority == 'normal') ? 'checked' : '' %>>
+                                        <label class="custom-control-label" for="priorityissueRadioEdit1">
+                                            Normal
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="priorityissueEdit"
+                                            id="priorityissueRadioEdit2" value="high"
+                                            <%= (resultEdit.priority == 'high') ? 'checked' : '' %>>
+                                        <label class="custom-control-label" for="priorityissueRadioEdit2">
+                                            High
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="priorityissueEdit"
+                                            id="priorityissueRadioEdit3" value="urgent"
+                                            <%= (resultEdit.priority == 'urgent') ? 'checked' : '' %>>
+                                        <label class="custom-control-label" for="priorityissueRadioEdit3">
+                                            Urgent
+                                        </label>
+                                    </div>
+                                    <div class="custom-control custom-radio my-1 mr-sm-2">
+                                        <input class="custom-control-input" type="radio" name="priorityissueEdit"
+                                            id="priorityissueRadioEdit4" value="immediate"
+                                            <%= (resultEdit.priority == 'immediate') ? 'checked' : '' %>>
+                                        <label class="custom-control-label" for="priorityissueRadioEdit4">
+                                            Immediate
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <!-- assignee -->
+                        <div class="form-group row">
+                            <label for="assigneeformEdit" class="col-sm-2 col-form-label">Assignee</label>
+                            <div class="col-sm-9">
+                                <select class="custom-select form-control" name="assigneeformEdit"
+                                    id="assigneeformEdit">
+                                    <option>Change Assignee</option>
+                                    <% for (let e = 0;e < resultEdit2.length;e++) { %>
+                                    <option value="<%= resultEdit2[e].userid %>"
+                                        <%= resultEdit.assignee == resultEdit2[e].userid ? 'selected' : '' %>>
+                                        <%= resultEdit2[e].firstname + ' ' + resultEdit2[e].lastname %> </option>
+                                    <% } %>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- startdate -->
+                        <div class="form-group row">
+                            <label for="startdateformEdit" class="col-sm-2 col-form-label">Start Date</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="startdateformEdit" name="startdateformEdit"
+                                    placeholder="Start Date"
+                                    value="<%=moment(resultEdit.startdate).format('YYYY-MM-DD')%>">
+                            </div>
+                        </div>
+
+                        <!-- duedate -->
+                        <div class="form-group row">
+                            <label for="duedateformEdit" class="col-sm-2 col-form-label">Due Date</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control" id="duedateformEdit" name="duedateformEdit"
+                                    placeholder="Due Date" value="<%=moment(resultEdit.duedate).format('YYYY-MM-DD')%>">
+                            </div>
+                        </div>
+
+                        <!-- estimated date -->
+                        <div class="form-group row">
+                            <label for="estimatedformEdit" class="col-sm-2 col-form-label">Estimated Date (Days)</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="estimatedformEdit"
+                                    name="estimatedformEdit" placeholder="Due Date"
+                                    value="<%=resultEdit.estimatedtime%>">
+                            </div>
+                        </div>
+
+                        <!-- done -->
+                        <div class="form-group row">
+                            <label for="doneformEdit" class="col-sm-2 col-form-label">% Done</label>
+                            <div class="col-sm-9">
+                                <select class="custom-select form-control" name="doneformEdit" id="doneformEdit">
+                                    <option>Percentage</option>
+                                    <option value="0" <%= resultEdit.done == 0 ? ' selected' : '' %>>0%</option>
+                                    <option value="25" <%= resultEdit.done == 25 ? ' selected' : '' %>>25%</option>
+                                    <option value="50" <%= resultEdit.done == 50 ? ' selected' : '' %>>50%</option>
+                                    <option value="75" <%= resultEdit.done == 75 ? ' selected' : '' %>>75%</option>
+                                    <option value="100" <%= resultEdit.done == 100 ? ' selected' : '' %>>100%</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- spenttime -->
+                        <div class="form-group row">
+                            <label for="spenttimeform" class="col-sm-2 col-form-label">Spent Time</label>
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="spenttimeform" name="spenttimeform"
+                                    placeholder="Spent Time" value="<%= resultEdit.spenttime %>">
+                            </div>
+                        </div>
+
+                        <!-- targetversion -->
+                        <div class="form-group row">
+                            <label for="targetversionform" class="col-sm-2 col-form-label">Target Version</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="targetversionform" name="targetversionform"
+                                    placeholder="Target Version" value="<%=resultEdit.targetversion%>">
+                            </div>
+                        </div>
+
+                        <!-- author -->
+                        <div class="form-group row">
+                            <label for="authorform" class="col-sm-2 col-form-label">Author</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="authorform" name="authorform"
+                                    placeholder="Author" value="<%=resultEdit.firstname + ' ' + resultEdit.lastname%>"
+                                    disabled>
+                            </div>
+                        </div>
+
+                        <!-- parenttask -->
+                        <div class="form-group row">
+                            <label for="parenttaskform" class="col-sm-2 col-form-label">Parent Task (Issue ID)</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="parenttaskform" name="parenttaskform"
+                                    placeholder="Parent Task" value="<%=resultEdit.parenttask%>">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="validatedCustomFile" class="col-sm-2 col-form-label">File</label>
+                            <div class="custom-file col-sm-9">
+                                <input type="file" class="custom-file-input" id="validatedCustomFile" name="sampleFile"
+                                    value="<%= resultEdit.files %>">
+                                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                <br>
+                                <%= resultEdit.files %>
+                                <img src="/images/<%= resultEdit.files %>" alt="" style="width:50px;margin: 20px">
+                            </div>
+                        </div>
+
+                        <br><br><br><br>
+
+                        <button type="submit" class="btn btn-outline-primary" <%= (resultEdit.status == 'Closed') ? 'hidden' : '' %>>Save</button>
+                        <a href='/projects/issues/list/<%=keyid%>' class="btn btn-outline-warning">Back</a>
+                        <br>
+                    </div>
+                </div>
+                <br><br>
+            </form>
+            <br>
+        </main>
+    </div>
+</div>

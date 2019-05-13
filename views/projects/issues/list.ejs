@@ -1,0 +1,255 @@
+<% include ../../partial/header %>
+<% include ../../partial/sidebar %>
+<div style="line-height:10px"><br /></div>
+<div class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <h1><b>Issues</b></h1>
+    <hr />
+    <h2><b>Filters</b></h1>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" style="top: -35px; left: 30px ">
+            <form>
+                <input type="hidden" name="page" value="1">
+                <div class="form-group row">
+                    <div class="col-form-label">
+                        <input class="form-check-input" type="checkbox" id="checkfilterissue1" name="checkfilterissue1"
+                            <%= (query.checkfilterissue1) ? 'checked': '' %>>
+                    </div>
+                    <label for="checkfilterissue1" class="col-sm-2 col-form-label">ID</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="halissueid" name="halissueid" placeholder="ID"
+                            value="<%= query.halissueid %>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-form-label">
+                        <input class="form-check-input" type="checkbox" id="checkfilterissue2" name="checkfilterissue2"
+                            <%= (query.checkfilterissue2) ? 'checked': '' %>>
+                    </div>
+                    <label for="checkfilterissue2" class="col-sm-2 col-form-label">Subject</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="halissuename" name="halissuename"
+                            placeholder="Subject" value="<%= query.halissuename %>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-form-label">
+                        <input class="form-check-input" type="checkbox" id="checkfilterissue3" name="checkfilterissue3"
+                            <%= (query.checkfilterissue3) ? 'checked': '' %>>
+                    </div>
+                    <label for="checkfilterissue3" class="col-sm-2 col-form-label">Tracker</label>
+                    <div class="col-sm-9">
+                        <select id="inputState" class="form-control" name="halissuetracker">
+                            <option value="">Choose</option>
+                            <option value="Bug" <%= query.halissuetracker == 'Bug' ? ' selected' : '' %>>Bug
+                            </option>
+                            <option value="Feature" <%= query.halissuetracker == 'Feature' ? ' selected' : '' %>>Feature
+                            </option>
+                            <option value="Support" <%= query.halissuetracker == 'Support' ? ' selected' : '' %>>Support
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-secondary">Search</button>
+                <a href='/projects/issues/list/<%=keyid%>' class="btn btn-outline-warning">Reset</a>
+            </form>
+            <br />
+            <h3 class="col-sm-1" style="left: -40px;bottom: 5px" color:darkslategrey;border-radius:
+                5px;margin-top:40px;"><b>Option</b>
+            </h3>
+
+            <fieldset class="form-group">
+                <form method="post" action="/projects/issues/list/<%=keyid%>">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">Columns</legend>
+                        <div class="col-sm-1">
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input class="custom-control-input" type="checkbox" name="idckissue" id="checkbox1"
+                                    value="true" <%= issuesoption.idckissue ? 'checked' : '' %> checked>
+                                <label class="custom-control-label" for="checkbox1">
+                                    ID
+                                </label>
+                            </div>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input class="custom-control-input" type="checkbox" name="subjectckissue" id="checkbox2"
+                                    value="true" <%= issuesoption.subjectckissue ? 'checked' : '' %>>
+                                <label class="custom-control-label" for="checkbox2">
+                                    Subject
+                                </label>
+                            </div>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input class="custom-control-input" type="checkbox" name="trackerckissue" id="checkbox3"
+                                    value="true" <%= issuesoption.trackerckissue ? 'checked' : '' %>>
+                                <label class="custom-control-label" for="checkbox3">
+                                    Tracker
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input class="custom-control-input" type="checkbox" name="statusckissue" id="checkbox4"
+                                    value="true" <%= issuesoption.statusckissue ? 'checked' : '' %>>
+                                <label class="custom-control-label" for="checkbox4">
+                                    Status
+                                </label>
+                            </div>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input class="custom-control-input" type="checkbox" name="priorityckissue"
+                                    id="checkbox5" value="true" <%= issuesoption.priorityckissue ? 'checked' : '' %>>
+                                <label class="custom-control-label" for="checkbox5">
+                                    Priority
+                                </label>
+                            </div>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input class="custom-control-input" type="checkbox" name="descckissue" id="checkbox6"
+                                    value="true" <%= issuesoption.descckissue ? 'checked' : '' %>>
+                                <label class="custom-control-label" for="checkbox6">
+                                    Description
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input class="custom-control-input" type="checkbox" name="stdateckissue" id="checkbox7"
+                                    value="true" <%= issuesoption.stdateckissue ? 'checked' : '' %>>
+                                <label class="custom-control-label" for="checkbox7">
+                                    Start Date
+                                </label>
+                            </div>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input class="custom-control-input" type="checkbox" name="duedateckissue" id="checkbox8"
+                                    value="true" <%= issuesoption.duedateckissue ? 'checked' : '' %>>
+                                <label class="custom-control-label" for="checkbox8">
+                                    Due Date
+                                </label>
+                            </div>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input class="custom-control-input" type="checkbox" name="estTimeckissue" id="checkbox9"
+                                    value="true" <%= issuesoption.estTimeckissue ? 'checked' : '' %>>
+                                <label class="custom-control-label" for="checkbox9">
+                                    Estimated Date
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input class="custom-control-input" type="checkbox" name="doneissue" id="checkbox10"
+                                    value="true" <%= issuesoption.doneissue ? 'checked' : '' %>>
+                                <label class="custom-control-label" for="checkbox10">
+                                    Done
+                                </label>
+                            </div>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input class="custom-control-input" type="checkbox" name="authorissue" id="checkbox11"
+                                    value="true" <%= issuesoption.authorissue ? 'checked' : '' %>>
+                                <label class="custom-control-label" for="checkbox11">
+                                    Author
+                                </label>
+                            </div>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input class="custom-control-input" type="checkbox" name="assigneeissue" id="checkbox12"
+                                    value="true" <%= issuesoption.assigneeissue ? 'checked' : '' %>>
+                                <label class="custom-control-label" for="checkbox12">
+                                    Assignee
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary">Apply</button>
+                    
+
+                </form>
+            </fieldset>
+
+            <div style="margin-right:100px">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <% if(issuesoption.idckissue){%>
+                            <th scope="col">Issue ID</th><%}%>
+                            <% if(issuesoption.subjectckissue){%>
+                            <th scope="col">Subject</th><%}%>
+                            <% if(issuesoption.trackerckissue){%>
+                            <th scope="col">Tracker</th><%}%>
+                            <% if(issuesoption.statusckissue){%>
+                            <th scope="col">Status</th><%}%>
+                            <% if(issuesoption.priorityckissue){%>
+                            <th scope="col">Priority</th><%}%>
+                            <% if(issuesoption.descckissue){%>
+                            <th scope="col">Description</th><%}%>
+                            <% if(issuesoption.stdateckissue){%>
+                            <th scope="col">Start Date</th><%}%>
+                            <% if(issuesoption.duedateckissue){%>
+                            <th scope="col">Due Date</th><%}%>
+                            <% if(issuesoption.estTimeckissue){%>
+                            <th scope="col">Estimated Time</th><%}%>
+                                <% if(issuesoption.doneissue){%>
+                            <th scope="col">Done (%)</th><%}%>
+                            <% if(issuesoption.authorissue){%>
+                            <th scope="col">Author</th><%}%>
+                                <% if(issuesoption.assigneeissue){%>
+                            <th scope="col">Assignee</th><%}%>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% issuesTableResult.forEach((issuerows)=> { %>
+                        <tr>
+                            <% if(issuesoption.idckissue){%>
+                            <th scope="row"><%= issuerows.issueid %>
+                            </th><%}%>
+                            <% if(issuesoption.subjectckissue){%>
+                            <td> <%= issuerows.subject %> </td><%}%>
+                            <% if(issuesoption.trackerckissue){%>
+                            <td> <%= issuerows.tracker %> </td><%}%>
+                            <% if(issuesoption.statusckissue){%>
+                            <td> <%= issuerows.status %> </td><%}%>
+                            <% if(issuesoption.priorityckissue){%>
+                            <td> <%= issuerows.priority %> </td><%}%>
+                            <% if(issuesoption.descckissue){%>
+                            <td> <%= issuerows.description %> </td><%}%>
+                            <% if(issuesoption.stdateckissue){%>
+                            <td> <%= moment(issuerows.startdate).format('YYYY-MM-DD, hh:mm:ss') %> </td><%}%>
+                            <% if(issuesoption.duedateckissue){%>
+                            <td> <%= moment(issuerows.duedate).format('YYYY-MM-DD, hh:mm:ss') %> </td><%}%>
+                            <% if(issuesoption.estTimeckissue){%>
+                            <td> <%= issuerows.estimatedtime %> </td><%}%>
+                            <% if(issuesoption.doneissue){%>
+                            <td> <%= issuerows.done %> </td><%}%>
+                            <% if(issuesoption.authorissue){%>
+                            <td> <%= 'User ID' + ' ' + '#' + issuerows.author %></td><%}%>
+                            <% if(issuesoption.assigneeissue){%>
+                            <td> <%= '#'+issuerows.assignee + ' ' + issuerows.firstname + ' ' + issuerows.lastname %>
+                            </td><%}%>
+                            <td><a href='/projects/issues/list/edit/<%=issuerows.projectid%>/<%=issuerows.issueid%>'
+                            class="btn btn-outline-secondary">Edit</a>
+                            <a href='/projects/issues/list/delete/<%=issuerows.projectid%>/<%=issuerows.issueid%>'
+                                class="btn btn-outline-danger">Delete</a></td>
+                        </tr>
+                        <% }) %>
+                        </tbody>
+                </table>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li class="page-item<%= 1 == pagination.page ? ' disabled' : ''%>"><a class="page-link"
+                                href="/projects<%= pagination.web1.replace(`page=${pagination.page}`, `page=${parseInt(pagination.page) - 1}`) %>">Previous</a>
+                        </li>
+                        <% for(let i = 1; i <= pagination.pages;i++) { %>
+                        <li class="page-item<%= i == pagination.page ? ' active' : ''%>"><a class="page-link"
+                                href="/projects<%= pagination.web1.replace(`page=${pagination.page}`, `page=${i}`) %>"><%= i %></a>
+                        </li>
+                        <% } %>
+                        <li class="page-item<%= pagination.pages <= pagination.page ? ' disabled' : ''%>"><a
+                                class="page-link"
+                                href="/projects<%= pagination.web1.replace(`page=${pagination.page}`, `page=${parseInt(pagination.page) + 1}`) %>">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <a href="/projects/issues/list/add/<%=keyid%>" class="btn btn-primary" style="margin-left:2px">Add</a>
+        </main>
+    </div>
+</div>
+<% include ../../partial/footer %>
