@@ -13,7 +13,7 @@ module.exports = (pool) => {
   // });
 
   router.get('/',helpers.isLoggedIn, function (req, res, next) {
-    res.render('login', { title: 'Login' })
+    res.render('login', { title: 'Login',loginMessage: req.flash('loginMessage') })
   })
 
   router.get('/login', function (req, res, next) {
