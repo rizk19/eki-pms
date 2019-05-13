@@ -65,3 +65,5 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+///usr/bin/pg_dump --host localhost --port 5432 --username "postgres" --role "eki" --no-password  --format custom --blobs --verbose --file "/home/rishiki/practice/pms.backup" "pms"
+
