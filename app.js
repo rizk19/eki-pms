@@ -23,6 +23,11 @@ const pool = new Pool({
   database: 'd9mmq8k1lr14j6',
   password: 'fdffba354aad9cbda4eaea40eae69247b5c817fc9285c06f309c1a464ef09ee8',
   port: 5432
+  // user: 'eki',
+  // host: 'localhost',
+  // database: 'pms',
+  // password: '12345',
+  // port: 5432
 })
 
 var signinRouter = require('./routes/signin')(pool);
